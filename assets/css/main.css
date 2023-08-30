@@ -1,0 +1,270 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #0094ff;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.title {
+  text-align: center;
+  border-block: 1px dashed #fff;
+  background-color: #3daaf8;
+  margin-top: 0;
+  padding-block: 10px;
+}
+
+.main {
+  width: 70%;
+  min-width: 300px;
+  height: auto;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #3daaf8;
+  border-radius: 10px;
+  margin-inline: auto;
+  border: 1px dashed #fff;
+  font-size: calc(1vmin + 4px);
+}
+
+.main__content-container.reversed-digit-recall-game{
+    display: none;
+}
+
+.main__btn.switch{
+    background-color: #2d0691;
+    margin-bottom: 10px;
+}
+
+.main__subtitle {
+  text-align: center;
+  margin-top: 20px;
+  background-color: #0094ff;
+  border-radius: 10px 10px 0 0;
+  border: 1px dashed #fff;
+}
+
+.main__content-container,
+.main__record-container {
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px dashed #fff;
+}
+
+.main__setting,
+.main__record {
+  background-color: #0094ff;
+  padding: 5px;
+  border-radius: 0 0 10px 10px;
+
+  border: 1px dashed #fff;
+}
+
+.main__record-container {
+  text-align: center;
+}
+
+.main__info-number-container {
+  background-color: #0094ff;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  border: 1px dashed #fff;
+}
+
+.main__info-number-container--d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main__attempt-counter,
+.main__figure-counter,
+.main__time {
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #2d0691;
+}
+
+.main__setting--d-flex {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+}
+
+.main__caption,
+.main__btn-save {
+  background-color: #3daaf8;
+  border: 1px dashed #fff;
+  color: #fff;
+  border-radius: 10px;
+
+  transition: 0.5s all;
+}
+
+.main__btn-save {
+  width: 281px;
+  height: 50px;
+  background-color: #351682;
+  opacity: 0.5;
+}
+
+.main__caption {
+  padding: 5px;
+  white-space: nowrap;
+}
+
+.main__btn-save:hover {
+  opacity: 1;
+  letter-spacing: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.main__caption--d-flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main__input {
+  padding: 5px;
+  margin-left: 5px;
+  text-align: center;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  width: 100px;
+  cursor: pointer;
+}
+
+.main__random-number-container,
+.main__input-container {
+  height: auto;
+  padding: 10px 5px;
+  background-color: #0094ff;
+  border: 1px dashed #fff;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+}
+
+.main__random-number-container--d-flex-wrap,
+.main__input-container--d-flex-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main__input-container {
+  background-color: #fdfdfd;
+  margin-bottom: 20px;
+}
+
+.main__btns--d-flex {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.main__btn {
+  color: #fff;
+  border: 1px dashed #fff;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.5s all;
+}
+
+.main__btn.generate {
+  background-color: #105587;
+}
+
+.main__btn.clear {
+  background-color: #fa70e3;
+}
+
+.main__btn.restart {
+  background-color: #d7d11e;
+}
+
+.main__btn.test {
+  background-color: #1c8517;
+}
+
+.main__btn:hover {
+  letter-spacing: 5px;
+  font-size: calc(.5min + 2px);
+  opacity: 1;
+}
+
+.main__record {
+  padding: 5px 0;
+  height: auto;
+}
+
+.main__record--d-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.main__record .main__caption {
+  margin-inline: 5px;
+  padding: 10px;
+}
+
+.main__record .main__caption span {
+  background-color: rgb(251, 7, 3);
+  padding: 5px 9px;
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.main__random-digit {
+  background-color: #3daaf8;
+  border-radius: 50%;
+  padding: 5px 9px;
+  margin: 2px;
+}
+
+.main__random-digit.reversed{
+    padding: 30px 45px;
+    font-size: 3rem;
+}
+
+@media (max-width: 1470px) {
+  .main__setting--d-flex {
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    row-gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    font-size: calc(1vmin + 5px);
+    width: 90%;
+  }
+
+  
+}
+
+@media (max-width: 470px) {
+    .main__info-number-container--d-flex {
+        flex-wrap: wrap;
+        gap: 10px;
+
+        align-content: center;
+        justify-content: center;
+      }
+
+      .main__record--d-flex {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    
+  }
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recall Game</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <h1 class="title">DIGIT RECALL GAME</h1>
+
+    <main class="main">
+        <button id="btn-switch" class="main__btn switch">GO TO REVERSED DIGIT RECALL GAME</button>
+        <section class="main__content-container digit-recall-game">
+
+            <h2 class="main__subtitle">SETTINGS</h2>
+            <section class="main__setting main__setting--d-flex">
+
+                <label class="main__caption main__caption--d-flex digit-amount">
+                    <span>DIGIT AMOUNT</span> <input type="number" class="main__input digit-amount" id="digit-amount" placeholder="0"
+                        min="5" max="1000" maxlength="4" value="5">
+                </label>
+
+
+                <label class="main__caption main__caption--d-flex figure-amount">
+                    <span>FIGURE AMOUNT</span> <input type="number" class="main__input figure-amount" id="figure-amount" placeholder="0"
+                        min="10" max="100" maxlength="3" value="10">
+                </label>
+
+
+                <label class="main__caption main__caption--d-flex attempt-amount">
+                    <span>CORRECT ATTEMPT AMOUNT</span> <input type="number" class="main__input attempt-amount" id="attempt-amount"
+                        placeholder="0" min="1" max="5" maxlength="1" value="1">
+                </label>
+
+                <button id="btn-save" class="main__btn-save">SAVE</button>
+            </section>
+
+            <h2 class="main__subtitle">RECORDS</h2>
+            <section class="main__record main__record--d-flex">
+                <label class="main__caption">
+                    <span class="main__10min-record" id="min-record">0</span> FIGURES IN 10 MIN
+                </label>
+                <label class="main__caption">       
+                    <span class="main__1hour-record" id="hour-record">0</span> FIGURES IN 1 HOUR
+                </label>
+
+                <label class="main__caption">       
+                    <span class="main__time-record" id="time-record">00:00:00</span>
+                </label>
+            </section>
+
+            <h2 class="main__subtitle">INFORMATION</h2>
+            <section class="main__info-number-container main__info-number-container--d-flex">
+                <label class="main__caption">
+                    FIGURE COUNTER <span class="main__figure-counter" id="figure-counter">X/X</span>
+                </label>
+
+                <label class="main__caption">
+                    ATTEMPT COUNTER <span class="main__attempt-counter" id="attempt-counter">X/X</span>
+                </label>
+
+                <label class="main__caption">
+                    TIME <span class="main__time" id="time">00:00:00</span>
+                </label>
+            </section>
+
+            <h2 class="main__subtitle">RANDOM NUMBER</h2>
+            <section class="main__random-number-container main__random-number-container--d-flex-wrap" id="random-number"></section>
+
+            <h2 class="main__subtitle">RECALL THE NUMBER</h2>
+            <section class="main__input-container main__input-container--d-flex-wrap" id="input-container"></section>
+            <section class="main__btns main__btns--d-flex">
+                <button class="main__btn generate" id="btn-generate">GENERATE</button>
+                <button class="main__btn clear" id="btn-clear">CLEAR</button>
+                <button class="main__btn restart" id="btn-restart">RESTART</button>
+                <button class="main__btn test" id="btn-test">TEST</button>
+            </section>
+        </section>
+        
+        <section class="main__content-container reversed-digit-recall-game">
+            <h2 class="main__subtitle">SETTINGS</h2>
+            <section class="main__setting main__setting--d-flex">
+
+                <label class="main__caption main__caption--d-flex digit-amount">
+                    <span>DIGIT AMOUNT</span> <input type="number" class="main__input digit-amount" id="digit-amount2" placeholder="0" min="5" max="100" maxlength="3" value="5">
+                </label>
+
+                <label class="main__caption main__caption--d-flex flash-mode">
+                    <span>FLASH MODE</span> <input type="checkbox" class="main__input flash-mode" id="flash-mode" checked>
+                </label>
+
+                <label class="main__caption main__caption--d-flex speed">
+                    <span>SPEED</span> <input type="number" class="main__input speed" id="speed" placeholder="0" min="1" max="3" maxlength="1" value="1">
+                </label>
+
+                <button id="btn-save2" class="main__btn-save">SAVE</button>
+            </section>
+
+            <h2 class="main__subtitle">RANDOM NUMBER</h2>
+            <section class="main__random-number-container main__random-number-container--d-flex-wrap" id="random-number2"></section>
+
+            <h2 class="main__subtitle">RECALL THE NUMBER IN REVERSE</h2>
+            <section class="main__input-container main__input-container--d-flex-wrap" id="input-container2"></section>
+            <section class="main__btns main__btns--d-flex">
+                <button class="main__btn generate" id="btn-generate2">GENERATE</button>
+                <button class="main__btn clear" id="btn-clear2">CLEAR</button>
+                <button class="main__btn test" id="btn-test2">TEST</button>
+            </section>
+        </section>
+    </main>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/digits.js"></script>
+    <script src="assets/js/info.js"></script>
+    <script src="assets/js/records.js"></script>
+   
+</body>
+
+</html>

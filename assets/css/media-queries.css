@@ -1,0 +1,43 @@
+@media (max-width: 1470px) {
+    .main__setting--d-flex {
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      row-gap: 10px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .main__textarea{
+
+        display: block;
+    }
+
+    .main__input-container{
+        display: none;
+    }
+  }
+  
+  
+  @media (max-width: 600px) {
+    .main {
+      font-size: calc(1vmin + 5px);
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 470px) {
+      .main__info-number-container--d-flex {
+          flex-wrap: wrap;
+          gap: 10px;
+  
+          align-content: center;
+          justify-content: center;
+        }
+  
+        .main__record--d-flex {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+      
+    }

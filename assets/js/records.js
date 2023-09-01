@@ -58,15 +58,10 @@ function showRecord()
 
     let record1 = localStorage.getItem("10min_record"),
         record2 = localStorage.getItem("1hour_record")
-    if(record1)
-    {
-        $10minRecord.textContent = record1
-    }
 
-    if(record2)
-    {
-        $1hourRecord.textContent = record2
-    }
+    $10minRecord.textContent = record1 || 0
+
+    $1hourRecord.textContent = record2 || 0
 }
 
 showRecord()

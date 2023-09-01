@@ -25,11 +25,14 @@ $timeRecord.textContent = timeRecord || "00:00:00"
 
 function showXs() {
     if (!started) return
-    if (gameIndex === 1 && setting2.flash_mode) return
+    if (gameIndex === 1 && $flashModeInput.checked) return
 
     if (gameIndex === 0) $randomNumberContainer.innerHTML = ""
     else $randomNumberContainer2.innerHTML = ""
-    for (let index = 0; index < setting.digit_amount; index++) {
+
+    let len = parseInt($digitAmountInput2.value)
+
+    for (let index = 0; index < len; index++) {
         if (gameIndex === 0) $randomNumberContainer.innerHTML += "X "
         else $randomNumberContainer2.innerHTML += "X ";
     }
@@ -49,7 +52,7 @@ $randomNumberContainer.onmouseover = () => {
 
 $randomNumberContainer2.onmouseover = () => {
     if (!started) return
-    if (gameIndex === 1 && setting2.flash_mode) return
+    if (gameIndex === 1 && $flashModeInput.checked) return
     let html = showRandomFigure()
     $randomNumberContainer2.innerHTML = html
 }
@@ -96,7 +99,7 @@ $btnSwitch.onclick = () => {
 }
 
 $btnGenerate.onclick = () => {
-    let len = setting.digit_amount
+    let len = parseInt($digitAmountInput.value)
     generateRandomFigure(len)
 
     let html = showRandomFigure()
@@ -109,22 +112,22 @@ $btnGenerate.onclick = () => {
 }
 
 $btnGenerate2.onclick = () => {
-    let len = setting2.digit_amount
+    let len = parseInt($digitAmountInput2.value)
     generateRandomFigure(len)
 
     
-    if (setting2.flash_mode) {
-        let milliseconds = 1000 / setting2.speed
+    if ($flashModeInput.checked) {
+        let milliseconds = 1000 / $speed.value
 
         let index = 0
         if (!started) {
             time2 = setInterval(() => {
 
                 $randomNumberContainer2.innerHTML = `<span class="main__random-digit reversed">${randomFigureString[index++]}</span>`
+
                 if (index === len) {
                     clearInterval(time2)
                     started = false
-                  
                 }
             }, milliseconds)
             started = true
@@ -151,6 +154,15 @@ $btnClear2.onclick = () => {
 
 
 $btnRestart.onclick = () => {
+
+   if(!saved)
+   {
+    let ok = confirm("Are you sure you want to restart?")
+    if(!ok) return
+   }
+   else{
+    saved = false
+   }
 
     if (started)
         clearInterval(time1)

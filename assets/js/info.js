@@ -7,8 +7,8 @@ winLossTrackerArray = [],
 figureCounter = 0, attemptCounter = 0
 
 
-$figureCounterSpan.textContent = `0/${setting.figure_amount}`
-$attemptCounterSpan.textContent = `0/${setting.attempt_amount}`
+$figureCounterSpan.textContent = `0/${setting.figure_amount||"X"}`
+$attemptCounterSpan.textContent = `0/${setting.attempt_amount||"X"}`
 
 const time = function(){time1 = setInterval(getTime, 1000)}
 let timeString = ""

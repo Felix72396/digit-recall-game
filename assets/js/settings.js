@@ -10,6 +10,7 @@ $btnSave2 = document.querySelector("#btn-save2")
 const setting = JSON.parse(localStorage.getItem("setting")) || {},
 setting2 = JSON.parse(localStorage.getItem("setting2")) || {}
 
+let saved = false
 if(Object.keys(setting).length > 0)
 {
     $digitAmountInput.value = setting.digit_amount
@@ -32,6 +33,12 @@ $flashModeInput.onchange = () => {
 }
 
 $btnSave.onclick = () => {
+    if(started)
+    {
+        let ok = confirm("Saving will automatically restart all your current progress. Are you sure you want to continue?")
+        if(!ok) return
+    }
+
     setting.digit_amount = parseInt($digitAmountInput.value)
     setting.figure_amount = parseInt($figureAmountInput.value)
     setting.attempt_amount = parseInt($attemptAmountInput.value)
@@ -43,6 +50,7 @@ $btnSave.onclick = () => {
 
     alert(`Setting Saved!`)
 
+    saved = true
     $btnRestart.click()
 }
 

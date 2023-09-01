@@ -27,7 +27,7 @@ body {
   border-radius: 10px;
   margin-inline: auto;
   border: 1px dashed #fff;
-  font-size: calc(1vmin + 4px);
+  font-size: calc(1vmin + 8px);
 }
 
 .main__content-container.reversed-digit-recall-game{

@@ -39,7 +39,7 @@ let randomFigureString = "",
 
 let right1 = 0, right2 = 0
 
-let restart = false
+let restarted = false
 
 let digitAmount,
     digitAmount2,

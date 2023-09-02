@@ -1,0 +1,14 @@
+I will create a digit recall game that will allow me to improve my memory.
+This game consists on recalling the figure and you have to type it bellow
+and you'll get inmediate feedback. 
+
+You can set the amount of digits the figure you'll be memorizing and
+also you'll be able to set the amount of correct attempts you'll do so the number
+disappear and another number shows up. 
+
+The game will show the amount of figures you've recalled and also will save the amount 
+of figures you recall in a ten minute span allowing you to break you're record, which
+will be saved in localStorage. This way you'll know if you're improving and you can see
+the time you've spent in your training!
+
+The app will also save record of the amount of numbers you've recalled in one hour

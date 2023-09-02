@@ -1,12 +1,20 @@
 const setting = JSON.parse(localStorage.getItem("setting")) || {game1:{}, game2:{}}
 
-if (Object.keys(setting.game1).length > 0) {
+function isEmpty(obj) {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            return false;
+        }
+    }
+    return true;
+}
+if (!isEmpty(setting.game1)) {
     $digitAmountInput.value = setting.game1.digit_amount
     $figureAmountInput.value = setting.game1.figure_amount
     $attemptAmountInput.value = setting.game1.attempt_amount
 }
 
-if (Object.keys(setting.game2).length > 0) {
+if (!isEmpty(setting.game2)) {
     $digitAmountInput2.value = setting.game2.digit_amount
     $speed.value = setting.game2.speed
     $flashModeInput.checked = setting.game2.flash_mode

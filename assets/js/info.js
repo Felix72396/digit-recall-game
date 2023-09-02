@@ -1,14 +1,8 @@
-const $figureCounterSpan = document.querySelector("#figure-counter"),
-$attemptCounterSpan = document.querySelector("#attempt-counter"),
-$timeSpan = document.querySelector("#time")
-
-let hours = 0, minutes = 0, seconds = 0,
-winLossTrackerArray = [],
-figureCounter = 0, attemptCounter = 0
 
 
-$figureCounterSpan.textContent = `0/${setting.figure_amount||"X"}`
-$attemptCounterSpan.textContent = `0/${setting.attempt_amount||"X"}`
+
+$figureCounterSpan.textContent = `0/${figureAmount||"X"}`
+$attemptCounterSpan.textContent = `0/${attemptAmount||"X"}`
 
 const time = function(){time1 = setInterval(getTime, 1000)}
 let timeString = ""

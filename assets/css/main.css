@@ -61,6 +61,11 @@ body {
   border: 1px dashed #fff;
 }
 
+.main__setting--d-flex {
+flex-wrap: wrap;
+gap: 10px;
+}
+
 .main__record-container {
   text-align: center;
 }
@@ -75,6 +80,7 @@ body {
 .main__info-number-container--d-flex {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .main__attempt-counter,
@@ -118,7 +124,7 @@ body {
 
 .main__record--d-flex {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 

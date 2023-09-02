@@ -1,4 +1,4 @@
-let right1 = 0, right2 = 0
+
 
 function checkRecord()
 {

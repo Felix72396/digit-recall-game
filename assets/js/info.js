@@ -1,6 +1,3 @@
-
-
-
 $figureCounterSpan.textContent = `0/${figureAmount||"X"}`
 $attemptCounterSpan.textContent = `0/${attemptAmount||"X"}`
 

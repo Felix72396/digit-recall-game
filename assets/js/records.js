@@ -1,5 +1,3 @@
-
-
 function checkRecord()
 {
     let {length} = winLossTrackerArray

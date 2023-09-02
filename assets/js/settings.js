@@ -1,6 +1,4 @@
-
 const setting = JSON.parse(localStorage.getItem("setting")) || {game1:{}, game2:{}}
-
 
 if (Object.keys(setting.game1).length > 0) {
     $digitAmountInput.value = setting.game1.digit_amount

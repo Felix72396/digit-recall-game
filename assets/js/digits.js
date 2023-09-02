@@ -1,4 +1,3 @@
-
 $timeRecord.textContent = timeRecord || "00:00:00"
 
 function showXs() {

@@ -235,6 +235,20 @@ $btnTest2.onclick = () => {
 
 }
 
+$textArea1.onkeypress = (e) => {
+    let pattern = /\d/
+
+    if(!pattern.test(e.key)) 
+        e.preventDefault()
+}
+
+$textArea2.onkeypress = (e) => {
+    let pattern = /\d/
+
+    if(!pattern.test(e.key)) 
+        e.preventDefault()
+}
+
 window.onkeyup = (e) => {
 
     let pattern = /Backspace|[\dsgcrt]/

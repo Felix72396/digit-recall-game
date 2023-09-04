@@ -49,7 +49,7 @@
                     <span class="main__10min-record" id="min-record">0</span> FIGURES IN 10 MIN
                 </label>
                 <label class="main__caption">       
-                    <span class="main__1hour-record" id="hour-record">0</span> FIGURES IN 1 HOUR
+                    <span class="main__45min-record" id="forty-five-min-record">0</span> FIGURES IN 45 MIN
                 </label>
 
                 <label class="main__caption">       
@@ -117,12 +117,61 @@
                 <button class="main__btn test" id="btn-test2">TEST</button>
             </section>
         </section>
+
+        <section class="main__content-container super-recall-culus-game">
+            <h2 class="main__subtitle">PICK THE MATRIX SIZE</h2>
+            <section class="main__matrix-size-container main__matrix-size-container--d-flex">
+                <button data-matrix-size="4">4x4</button>
+                <button data-matrix-size="5">5x5</button>
+                <button data-matrix-size="6">6x6</button>
+                <button data-matrix-size="7">7x7</button>
+                <button data-matrix-size="8">8x8</button>
+                <button data-matrix-size="9">9x9</button>
+                <button data-matrix-size="10">10x10</button>
+            </section>
+            <br>
+            <h2 class="main__subtitle">TIME/HINT</h2>
+            <section class="main__time-hint-container main__time-hint-container--d-flex">
+                <label class="main__caption">
+                    TIME <span class="main__time">00 seg</span>
+                </label>
+                <button class="main__btn hint d-none" id="btn-hint">GET HINT</button>
+            </section>
+            <br>
+
+            <section class="main__matrix main__matrix--d-flex">
+                <table class="main__table" id="table">
+                   <tbody></tbody>
+                </table>
+            </section>
+            <br>
+            <section class="main__btns main__btns--d-flex">
+                <button class="main__btn generate" id="btn-generate3">GENERATE</button>
+                <button class="main__btn clear" id="btn-clear3">CLEAR</button>
+                <button class="main__btn test" id="btn-test3">TEST</button>
+            </section>
+        </section>
     </main>
+
+    <section class="main__digits main__digits--d-flex" id="digits">
+        <span style="--i:1;"><button>1</button></span>
+        <span style="--i:2;"><button>2</button></span>
+        <span style="--i:3;"><button>3</button></span>
+        <span style="--i:4;"><button>4</button></span>
+        <span style="--i:5;"><button>5</button></span>
+        <span style="--i:6;"><button>6</button></span>
+        <span style="--i:7;"><button>7</button></span>
+        <span style="--i:8;"><button>8</button></span>
+        <span style="--i:9;"><button>9</button></span>
+        <span style="--i:10;"><button>0</button></span>
+        <span class="main__x"><button id="btn-digit-close">X</button></span>
+    </section>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/digits.js"></script>
     <script src="assets/js/info.js"></script>
     <script src="assets/js/records.js"></script>
+    <script src="assets/js/calculus.js"></script>
    
 </body>
 

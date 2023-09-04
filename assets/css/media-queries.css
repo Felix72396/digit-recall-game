@@ -1,8 +1,8 @@
 @media (max-width: 1470px) {
     .main__setting--d-flex {
-      align-content: center;
       justify-content: center;
-      row-gap: 10px;
+      flex-wrap: wrap;
+
     }
   }
 

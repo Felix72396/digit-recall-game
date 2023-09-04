@@ -77,7 +77,7 @@ $btnSave.onclick = () => {
 
     alert(`Setting Saved!`)
 
-    restart = true
+    restarted = true
     $btnRestart.click()
 }
 

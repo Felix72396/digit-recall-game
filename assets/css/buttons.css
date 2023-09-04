@@ -63,3 +63,55 @@
     opacity: 1;
   }
 
+  .main__digits button {
+    z-index: 10;
+    padding: 4.5vmin 5vmin;
+    border-radius: 50%;
+    border: 1px dashed #ffffff;
+    background-color: #fff;
+    cursor: pointer;
+    position: absolute;
+    transform: rotate(calc(var(--i) * 36deg));
+    top: -100%;
+    transition: .5s all;
+
+}
+  
+  .main__digits button:hover{
+    background-color: #3daaf8;
+    padding: 5vmin 5.5vmin;
+    font-size: 25px;
+    font-weight: 900;
+    color: #fff;
+  }
+
+  span.main__x button {
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+span.main__x button:hover{
+  background-color: rgb(255, 0, 0);
+}
+
+.main__matrix-size-container button{
+  border:  1px dashed #fff;
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+
+  background-color: #5b2ece33;
+  transition: .5s all;
+ 
+}
+
+.main__matrix-size-container button:hover{
+  background-color: #2d0691;
+}
+
+button.blue-button{
+  background-color: #2d0691;
+}

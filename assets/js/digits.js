@@ -60,18 +60,31 @@ function getRandomNumber() {
 }
 
 $btnSwitch.onclick = () => {
+    restarted = true
+    $btnRestart.click()
 
-    if ($btnSwitch.textContent === "GO TO REVERSED DIGIT RECALL GAME") {
+    if(gameIndex === 0)
+    {
+        gameIndex = 1
         $digitRecallGameContainer.style.display = "none"
         $reversedDigitRecallGameContainer.style.display = "block"
-        $btnSwitch.textContent = "GO TO DIGIT RECALL GAME"
-        gameIndex = 1
+
+        $btnSwitch.textContent = "GO TO SUPER-RECALL-CULUS GAME"
     }
-    else {
-        $digitRecallGameContainer.style.display = "block"
+    else if (gameIndex === 1) {
+        gameIndex = 2
         $reversedDigitRecallGameContainer.style.display = "none"
-        $btnSwitch.textContent = "GO TO REVERSED DIGIT RECALL GAME"
+        $superRecallCulusGameContainer.style.display = "block"
+        
+        $btnSwitch.textContent = "GO TO DIGIT RECALL GAME"
+        
+    }
+    else{
         gameIndex = 0
+        $superRecallCulusGameContainer.style.display = "none"
+        $digitRecallGameContainer.style.display = "block"
+
+        $btnSwitch.textContent = "GO TO REVERSED DIGIT RECALL GAME"
     }
 }
 
@@ -92,7 +105,6 @@ $btnGenerate2.onclick = () => {
 
     generateRandomFigure(digitAmount2)
 
-
     if (flashMode) {
         if (!started) {
             let milliseconds = 1000 / speed,
@@ -108,10 +120,7 @@ $btnGenerate2.onclick = () => {
                     index = 0
                 }
             }, milliseconds)
-
         }
-
-
     }
     else {
         let html = showRandomFigure()
@@ -142,7 +151,6 @@ function restart() {
         restarted = false
     }
 
-
     clearInterval(time1)
 
     showXs()
@@ -151,6 +159,8 @@ function restart() {
     seconds = 0
     figureCounter = 0
     started = false
+    left1 = 0
+    left2 = 0
 
     $timeSpan.textContent = `${getFormattedDigits(hours)}:${getFormattedDigits(minutes)}:${getFormattedDigits(seconds)}`
     $figureCounterSpan.textContent = `0/${figureAmount}`
@@ -163,12 +173,7 @@ function restart() {
     showRecalledFigure()
 }
 
-$btnRestart.onclick = restart
-
-
-
-$textArea1.oninput = () => recalledFigureString = $textArea1.value
-$textArea2.oninput = () => recalledFigureString = $textArea2.value
+$btnRestart.onclick = () => restart()
 
 $btnTest.onclick = () => {
 
@@ -193,12 +198,15 @@ $btnTest.onclick = () => {
         $attemptCounterSpan.textContent = `${attemptCounter}/${attemptAmount}`
 
         if (figureCounter === figureAmount) {
+            winLossTrackerArray.push(1)
+            checkRecord()
             checkTimeRecord()
 
-            alert("Congratulations!")
+            
             restarted = true
 
             restart()
+            alert("Congratulations!")
         }
 
     }
@@ -248,6 +256,9 @@ $textArea2.onkeypress = (e) => {
     if(!pattern.test(e.key)) 
         e.preventDefault()
 }
+
+$textArea1.oninput = () => recalledFigureString = $textArea1.value
+$textArea2.oninput = () => recalledFigureString = $textArea2.value
 
 window.onkeyup = (e) => {
 

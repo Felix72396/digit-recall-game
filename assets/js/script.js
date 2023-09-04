@@ -11,11 +11,15 @@ const $randomNumberContainer = document.querySelector("#random-number"),
     $timeRecord = document.querySelector("#time-record"),
     $digitRecallGameContainer = document.querySelector(".main__content-container.digit-recall-game"),
     $reversedDigitRecallGameContainer = document.querySelector(".main__content-container.reversed-digit-recall-game"),
+    $superRecallCulusGameContainer = document.querySelector(".main__content-container.super-recall-culus-game"),
     $textArea1 = document.querySelector("#txt1"),
     $textArea2 = document.querySelector("#txt2"),
     $figureCounterSpan = document.querySelector("#figure-counter"),
     $attemptCounterSpan = document.querySelector("#attempt-counter"),
-    $timeSpan = document.querySelector("#time")
+    $timeSpan = document.querySelector("#time"),
+    $tBody = document.querySelector("#table tbody"),
+    // $btnDigitClose = document.querySelector("#btn-digit-close"),
+    $digitContainer = document.querySelector("#digits")
 
 const $digitAmountInput = document.querySelector("#digit-amount"),
     $digitAmountInput2 = document.querySelector("#digit-amount2"),
@@ -37,7 +41,7 @@ let randomFigureString = "",
     gameIndex = 0,
     timeRecord = localStorage.getItem("time")
 
-let right1 = 0, right2 = 0
+let left1 = 0, left2 = 0, matrixSize
 
 let restarted = false
 
@@ -47,3 +51,4 @@ let digitAmount,
     attemptAmount,
     speed,
     flashMode
+

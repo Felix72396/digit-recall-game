@@ -1,5 +1,3 @@
-
-
 body {
   width: 100vw;
   height: 100vh;
@@ -31,11 +29,10 @@ body {
   font-size: calc(1vmin + 8px);
 }
 
-.main__content-container.reversed-digit-recall-game, .main__content-container.super-recall-culus-game{
-    display: none;
+.main__content-container.reversed-digit-recall-game,
+.main__content-container.super-recall-culus-game {
+  display: none;
 }
-
-
 
 .main__subtitle {
   text-align: center;
@@ -63,16 +60,20 @@ body {
 }
 
 .main__setting--d-flex {
-display: flex;
-justify-content: space-between;
-gap: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
 }
 
 .main__record-container {
   text-align: center;
 }
 
-.main__info-number-container, .main__matrix-size-container, .main__time-hint-container {
+.main__info-number-container,
+.main__matrix-size-container,
+.main__time-hint-container,
+.main__operation,
+.main__calculation-btns {
   background-color: #0094ff;
   padding: 10px;
   border-radius: 0 0 10px 10px;
@@ -81,7 +82,7 @@ gap: 10px;
 
 .main__info-number-container--d-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 10px;
 }
 
@@ -95,7 +96,7 @@ gap: 10px;
 
 .main__setting--d-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   column-gap: 10px;
 }
 
@@ -122,10 +123,8 @@ gap: 10px;
 
 .main__record--d-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
-
-
 
 .main__random-digit {
   background-color: #3daaf8;
@@ -134,43 +133,95 @@ gap: 10px;
   margin: 2px;
 }
 
-.main__random-digit.reversed{
-    padding: 30px 45px;
-    font-size: 3rem;
+.main__random-digit.reversed {
+  padding: 30px 45px;
+  font-size: 3rem;
 }
 
-.main__matrix--d-flex{
+.main__matrix--d-flex {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 
-.main__table{
+.main__table {
   border-collapse: collapse;
 }
 
-.main td{
+.main td {
   border: 1px dashed #2d0691;
   color: #2d0691;
-  padding: 3.5vmin 4.5vmin;
+  padding: 2.5vmin 3vmin;
   font-size: 12px;
   cursor: pointer;
-  transition: .5s all;
+  transition: 0.5s all;
 }
 
-.main td:hover{
+.main td:hover {
   background-color: #2d0691;
   color: #fff;
 }
 
-td.white-text{
+td.white-text {
   color: #fff;
   font-weight: 900;
 }
 
-
-.main__matrix-size-container--d-flex, .main__time-hint-container--d-flex{
+.main__matrix-size-container--d-flex,
+.main__time-hint-container--d-flex {
   display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-content: center;
   justify-content: space-evenly;
+}
+
+.main__calculation--d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__calculation {
+  background-color: #0094ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main__calculation-container {
+  width: 50%;
+}
+
+.main__calculation-btns {
+  margin-top: 10px;
+  padding-block: 10px;
+}
+
+.main__calculation-btns--d-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main__operation--d-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__operation-value, .main__operation-symbol{
+  padding: 5px;
+  background-color: #2d0691;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.main__operation-symbol{
+  border-radius: 0%;
 }

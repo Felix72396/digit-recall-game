@@ -51,8 +51,12 @@
   background-color: #d7d11e;
 }
 
-.main__btn.test {
+.main__btn.test, .main__btn.accept {
   background-color: #1c8517;
+}
+
+.main__btn.cancel{
+  background-color: rgb(215, 9, 9);
 }
 
 .main__btn:hover {
@@ -72,6 +76,7 @@
   transform: rotate(calc(var(--i) * -36deg));
   top: -100%;
   transition: 0.5s all;
+
 }
 
 .main__digits button:hover {

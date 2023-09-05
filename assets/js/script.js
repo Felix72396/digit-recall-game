@@ -38,10 +38,11 @@ let hours = 0, minutes = 0, seconds = 0,
 let randomFigureString = "",
     recalledFigureString = "",
     started = false,
+    picked = false,
     gameIndex = 0,
     timeRecord = localStorage.getItem("time")
 
-let left1 = 0, left2 = 0, matrixSize
+let left = 0, matrixSize
 
 let restarted = false
 

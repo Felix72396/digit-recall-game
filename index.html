@@ -31,7 +31,7 @@
 
                 <label class="main__caption main__caption--d-flex figure-amount">
                     <span>FIGURE AMOUNT</span> <input type="number" class="main__input figure-amount" id="figure-amount" placeholder="0"
-                        min="10" max="100" maxlength="3" value="10">
+                        min="1" max="50" maxlength="3" value="10">
                 </label>
 
 
@@ -47,9 +47,6 @@
             <section class="main__record main__record--d-flex">
                 <label class="main__caption">
                     <span class="main__10min-record" id="min-record">0</span> FIGURES IN 10 MIN
-                </label>
-                <label class="main__caption">       
-                    <span class="main__45min-record" id="forty-five-min-record">0</span> FIGURES IN 45 MIN
                 </label>
 
                 <label class="main__caption">       
@@ -121,6 +118,7 @@
         <section class="main__content-container super-recall-culus-game">
             <h2 class="main__subtitle">PICK THE MATRIX SIZE</h2>
             <section class="main__matrix-size-container main__matrix-size-container--d-flex">
+                <button data-matrix-size="3">3x3</button>
                 <button data-matrix-size="4">4x4</button>
                 <button data-matrix-size="5">5x5</button>
                 <button data-matrix-size="6">6x6</button>
@@ -166,6 +164,18 @@
         <span style="--i:10;"><button>0</button></span>
         <span class="main__x"><button id="btn-digit-close">X</button></span>
     </section>
+
+    <section class="main__calculation main__calculation--d-flex d-none" id="calculation">
+        <section class="main__calculation-container">
+            <h2 class="main__subtitle">SOLVE THE OPERATION</h2>
+            <section class="main__operation main__operation--d-flex"></section>
+            <section class="main__calculation-btns main__calculation-btns--d-flex">
+                <button class="main__btn accept">ACCEPT</button>
+                <button class="main__btn cancel">CANCEL</button>
+            </section>
+        </section>
+    </section>
+
     <script src="assets/js/script.js"></script>
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/digits.js"></script>

@@ -159,7 +159,7 @@ function restart() {
     seconds = 0
     figureCounter = 0
     started = false
-    left1 = 0
+    left = 0
     left2 = 0
 
     $timeSpan.textContent = `${getFormattedDigits(hours)}:${getFormattedDigits(minutes)}:${getFormattedDigits(seconds)}`
@@ -198,8 +198,6 @@ $btnTest.onclick = () => {
         $attemptCounterSpan.textContent = `${attemptCounter}/${attemptAmount}`
 
         if (figureCounter === figureAmount) {
-            winLossTrackerArray.push(1)
-            checkRecord()
             checkTimeRecord()
 
             

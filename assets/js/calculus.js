@@ -4,7 +4,7 @@
         result
 
 
-    const time = function () { timer = setInterval(getTime, 10) }
+    const time = function () { timer = setInterval(getTime, 1000) }
     const $timeSpan = document.querySelector(".super-recall-culus-game .main__time"),
         $btnHint = document.querySelector("#btn-hint"),
         $operationContainer = document.querySelector(".main__operation")
@@ -22,6 +22,44 @@
             td.classList.remove("white-text")
         })
     }
+
+    function performOperation() {
+
+        let a = Math.round(Math.random() * 100) + 1,
+            b = Math.round(Math.random() * 100) + 1,
+            randomOption = Math.round(Math.random() * 3)
+        
+        switch (randomOption) {
+            case 0:
+                result = a + b
+                break
+            case 1:
+                result = a - b
+                break
+            case 2:
+                result = a * b
+                break
+
+            case 3:
+                result = Math.round((a / b) * 10) / 10
+                console.log(result)
+                break
+        }
+
+        $operationContainer.innerHTML = `<div>
+            <span class="main__operation-value">${a}</span>
+            <span class="main__operation-symbol">${operation[randomOption]}</span>
+            <span class="main__operation-value">${b}</span>
+        </div> <input class="main__operation-input" type="text" maxlength="5" placeholder="Type the result">`
+
+        document.querySelector(".main__operation-input").onkeypress = (e) => {
+            let pattern = /[\d.]/
+        
+            if(!pattern.test(e.key)) 
+                e.preventDefault()
+        }
+    }
+
 
 
     function getTime() {

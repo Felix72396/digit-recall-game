@@ -69,15 +69,7 @@ body {
   text-align: center;
 }
 
-<<<<<<< HEAD
 .main__info-number-container, .main__matrix-size-container, .main__time-hint-container {
-=======
-.main__info-number-container,
-.main__matrix-size-container,
-.main__time-hint-container,
-.main__operation,
-.main__calculation-btns {
->>>>>>> main
   background-color: #0094ff;
   padding: 10px;
   border-radius: 0 0 10px 10px;
@@ -172,13 +164,8 @@ td.white-text {
   font-weight: 900;
 }
 
-<<<<<<< HEAD
 
 .main__matrix-size-container--d-flex, .main__time-hint-container--d-flex{
-=======
-.main__matrix-size-container--d-flex,
-.main__time-hint-container--d-flex {
->>>>>>> main
   display: flex;
   gap: 10px;
   flex-wrap: wrap;

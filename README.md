@@ -21,4 +21,4 @@ by clicking the **"Hint"** button and you get a change to see the numbers within
 > If you want to check the code you just have to download the zip or fork the repository.
 > There's no need to install anything because it was developed with vanilla javascript, pure css and html alone without libraries or frameworks.
 
-## Play game (here)[https://felix72396.github.io/digit-recall-game/]
+## Play game [here](https://felix72396.github.io/digit-recall-game/)

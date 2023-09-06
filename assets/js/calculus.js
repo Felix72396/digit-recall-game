@@ -1,11 +1,12 @@
-(() => {
+
+// (() => {
     let $td,
-        timeout = false,
+        timeout = true,
         result
 
 
-    const time = function () { timer = setInterval(getTime, 1000) }
-    const $timeSpan = document.querySelector(".super-recall-culus-game .main__time"),
+    const timer = function () { time1 = setInterval(getTime2, 1000) }
+    const $timeSpan2 = document.querySelector(".super-recall-culus-game .main__time"),
         $btnHint = document.querySelector("#btn-hint"),
         $operationContainer = document.querySelector(".main__operation")
 
@@ -15,7 +16,9 @@
         2:"x",
         3:"/"
     }
-    function clear() {
+    function clearXs() {
+        if(!timeout) return
+
         const $tdList = document.querySelectorAll("td")
         $tdList.forEach(td => {
             td.textContent = "X"
@@ -62,18 +65,18 @@
 
 
 
-    function getTime() {
-        $timeSpan.textContent = `${getFormattedDigits(seconds)} seg`
+    function getTime2() {
+        $timeSpan2.textContent = `${getFormattedDigits(seconds)} seg`
         seconds--
 
         if (seconds === -1) {
-            clearInterval(timer)
-            const $parent = $timeSpan.parentElement
+            clearInterval(time1)
+            const $parent = $timeSpan2.parentElement
             $parent.classList.add("d-none")
             $btnHint.classList.remove("d-none")
             performOperation()
             timeout = true
-            clear()
+            clearXs()
         }
     }
 
@@ -88,6 +91,7 @@
         const $calculationContainer = document.querySelector(".main__calculation")
 
         if (e.target.matches("td")) {
+            if(!timeout) return
             $digitContainer.style.display = "flex"
             $td = e.target
         }
@@ -103,7 +107,7 @@
         }
 
         if (e.target.matches(".super-recall-culus-game .main__btn.clear")) {
-            clear()
+            clearXs()
         }
 
         if (e.target.matches(".super-recall-culus-game .main__btn.generate")) {
@@ -113,16 +117,17 @@
             }
 
             if (started) {
-                clearInterval(timer)
+                clearInterval(time1)
             }
 
             started = true
             timeout = false
-            const $parent = $timeSpan.parentElement
+            const $parent = $timeSpan2.parentElement
             $parent.classList.remove("d-none")
             $btnHint.classList.add("d-none")
+            $timeSpan2.textContent = "60 seg"
             seconds = 60
-            time()
+            timer()
 
 
             $tBody.innerHTML = ""
@@ -153,13 +158,19 @@
             for (const td of $tdList) {
                 if (td.dataset.number !== td.textContent) {
                     alert("Try it again😥")
-                    clear()
+                    clearXs()
                     return
                 }
             }
 
-            clear()
+            clearXs()
             alert("Congratulations!")
+            started = true
+            timeout = false
+            const $parent = $timeSpan2.parentElement
+            $parent.classList.remove("d-none")
+            $btnHint.classList.add("d-none")
+            $timeSpan2.textContent = `60 seg`
 
 
         }
@@ -175,16 +186,7 @@
             picked = true
         }
 
-        if (e.target.matches("[data-matrix-size]")) {
-            const $btnList = document.querySelectorAll("[data-matrix-size]")
-
-            $btnList.forEach(btn => btn.classList.remove("blue-button"))
-
-            e.target.classList.add("blue-button")
-            matrixSize = parseInt(e.target.getAttribute("data-matrix-size"))
-
-            picked = true
-        }
+  
 
         if (e.target.matches("#btn-hint")) {
             $calculationContainer.classList.remove("d-none")
@@ -202,11 +204,11 @@
                 $tdList.forEach(td => td.textContent = td.dataset.number)
 
                 timeout = false
-                const $parent = $timeSpan.parentElement
+                const $parent = $timeSpan2.parentElement
                 $parent.classList.remove("d-none")
                 $btnHint.classList.add("d-none")
                 seconds = 60
-                time()
+                timer()
             }
             else{
                 alert("Try it again😥!")
@@ -220,4 +222,4 @@
     }
 
     
-})()
+// })()

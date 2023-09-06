@@ -60,8 +60,7 @@ function getRandomNumber() {
 }
 
 $btnSwitch.onclick = () => {
-    restarted = true
-    $btnRestart.click()
+  
 
     if(gameIndex === 0)
     {
@@ -77,7 +76,7 @@ $btnSwitch.onclick = () => {
         $superRecallCulusGameContainer.style.display = "block"
         
         $btnSwitch.textContent = "GO TO DIGIT RECALL GAME"
-        
+        $randomNumberContainer2.innerHTML = ""
     }
     else{
         gameIndex = 0
@@ -85,7 +84,12 @@ $btnSwitch.onclick = () => {
         $digitRecallGameContainer.style.display = "block"
 
         $btnSwitch.textContent = "GO TO REVERSED DIGIT RECALL GAME"
+        $timeSpan2.textContent = `60 seg`
+        clearXs()
     }
+
+    restarted = true
+    restart()
 }
 
 $btnGenerate.onclick = () => {
@@ -111,11 +115,11 @@ $btnGenerate2.onclick = () => {
                 index = 0
 
             started = true
-            time2 = setInterval(() => {
+            time1 = setInterval(() => {
                 $randomNumberContainer2.innerHTML = `<span class="main__random-digit reversed">${randomFigureString[index++]}</span>`
 
                 if (index === digitAmount2) {
-                    clearInterval(time2)
+                    clearInterval(time1)
                     started = false
                     index = 0
                 }
@@ -151,7 +155,8 @@ function restart() {
         restarted = false
     }
 
-    clearInterval(time1)
+    // if(gameIndex !== 1)
+        clearInterval(time1)
 
     showXs()
     hours = 0
@@ -164,6 +169,7 @@ function restart() {
 
     $timeSpan.textContent = `${getFormattedDigits(hours)}:${getFormattedDigits(minutes)}:${getFormattedDigits(seconds)}`
     $figureCounterSpan.textContent = `0/${figureAmount}`
+
     $textArea1.value = ""
     $textArea2.value = ""
     spansTemplate = ""

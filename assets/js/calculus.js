@@ -1,10 +1,12 @@
+
 (() => {
     let $td,
         timeout = false,
         result
 
 
-    const time = function () { timer = setInterval(getTime, 1000) }
+    const time = function () { time1 = setInterval(getTime, 10) }
+
     const $timeSpan = document.querySelector(".super-recall-culus-game .main__time"),
         $btnHint = document.querySelector("#btn-hint"),
         $operationContainer = document.querySelector(".main__operation")
@@ -161,6 +163,12 @@
 
             clear()
             alert("Congratulations!")
+            started = true
+            timeout = false
+            const $parent = $timeSpan.parentElement
+            $parent.classList.remove("d-none")
+            $btnHint.classList.add("d-none")
+            $timeSpan.textContent = `60 seg`
 
 
         }

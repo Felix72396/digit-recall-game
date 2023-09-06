@@ -1,3 +1,4 @@
+
 (() => {
     let $td,
         timeout = false,
@@ -88,6 +89,7 @@
         const $calculationContainer = document.querySelector(".main__calculation")
 
         if (e.target.matches("td")) {
+            if(!timeout) return
             $digitContainer.style.display = "flex"
             $td = e.target
         }
@@ -160,6 +162,12 @@
 
             clear()
             alert("Congratulations!")
+            started = true
+            timeout = false
+            const $parent = $timeSpan.parentElement
+            $parent.classList.remove("d-none")
+            $btnHint.classList.add("d-none")
+            $timeSpan.textContent = `60 seg`
 
 
         }
@@ -175,16 +183,7 @@
             picked = true
         }
 
-        if (e.target.matches("[data-matrix-size]")) {
-            const $btnList = document.querySelectorAll("[data-matrix-size]")
-
-            $btnList.forEach(btn => btn.classList.remove("blue-button"))
-
-            e.target.classList.add("blue-button")
-            matrixSize = parseInt(e.target.getAttribute("data-matrix-size"))
-
-            picked = true
-        }
+  
 
         if (e.target.matches("#btn-hint")) {
             $calculationContainer.classList.remove("d-none")

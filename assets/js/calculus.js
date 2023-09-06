@@ -5,7 +5,7 @@
         result
 
 
-    const timer = function () { time1 = setInterval(getTime2, 10) }
+    const timer = function () { time1 = setInterval(getTime2, 1000) }
     const $timeSpan2 = document.querySelector(".super-recall-culus-game .main__time"),
         $btnHint = document.querySelector("#btn-hint"),
         $operationContainer = document.querySelector(".main__operation")

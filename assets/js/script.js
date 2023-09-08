@@ -19,7 +19,10 @@ const $randomNumberContainer = document.querySelector("#random-number"),
     $timeSpan = document.querySelector("#time"),
     $tBody = document.querySelector("#table tbody"),
     // $btnDigitClose = document.querySelector("#btn-digit-close"),
-    $digitContainer = document.querySelector("#digits")
+    $digitContainer = document.querySelector("#digits"),
+    $btnHideShow = document.querySelector(".main__btn.hide.show")
+    $btnHideShow2 = document.querySelector("#random-number2 + .main__btn.hide.show"),
+    $btnStop = document.querySelector("#btn-stop")
 
 const $digitAmountInput = document.querySelector("#digit-amount"),
     $digitAmountInput2 = document.querySelector("#digit-amount2"),
@@ -44,7 +47,7 @@ let randomFigureString = "",
 
 let left = 0, matrixSize
 
-let restarted = false
+let restarted = false, hidden = false
 
 let digitAmount,
     digitAmount2,

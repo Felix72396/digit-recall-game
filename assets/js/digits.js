@@ -136,8 +136,13 @@ $btnSwitch.onclick = () => {
     restart()
 }
 
-$btnGenerate.onclick = () => {
+function generateFigures()
+{
     $btnHideShow.classList.remove("d-none")
+    hidden = false
+    $btnHideShow.textContent = "HIDE"
+    $btnHideShow.classList.remove("green-color")
+    $btnHideShow.classList.add("red-color")
     generateRandomFigure(digitAmount)
 
     let html = showRandomFigure()
@@ -146,8 +151,9 @@ $btnGenerate.onclick = () => {
         time()
         started = true
     }
-
 }
+
+$btnGenerate.onclick = () => generateFigures()
 
 $btnGenerate2.onclick = () => {
     if(!timeout) return
@@ -266,14 +272,14 @@ $btnTest.onclick = () => {
         showRecalledFigure()
 
         attemptCounter++
+
         if (attemptCounter === attemptAmount) {
             winLossTrackerArray.push(1)
             checkRecord()
 
             attemptCounter = 0
             figureCounter++
-
-            $btnGenerate.click()
+            generateFigures()
         }
 
         $figureCounterSpan.textContent = `${figureCounter}/${figureAmount}`
@@ -290,6 +296,9 @@ $btnTest.onclick = () => {
             restart()
             alert("Congratulations!")
         }
+
+        
+   
 
     }
     else {
@@ -385,7 +394,7 @@ window.onkeyup = (e) => {
         switch (e.key) {
             case "g":
 
-                $btnGenerate.click()
+                generateFigures()
                 break
 
             case "c":

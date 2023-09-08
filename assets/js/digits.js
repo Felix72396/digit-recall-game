@@ -11,28 +11,73 @@ function showXs() {
 
     for (let index = 0; index < length; index++) {
         if (gameIndex === 0) $randomNumberContainer.innerHTML += "X "
-        else $randomNumberContainer2.innerHTML += "X ";
+        else $randomNumberContainer2.innerHTML += "X "
     }
 }
 
 showXs()
 
 
-$randomNumberContainer.onmouseout = showXs
-$randomNumberContainer2.onmouseout = showXs
+// $randomNumberContainer.onmouseout = showXs
+// $randomNumberContainer2.onmouseout = showXs
 
-$randomNumberContainer.onmouseover = () => {
+$btnHideShow.onclick = () => {
     if (!started) return
-    let html = showRandomFigure()
-    $randomNumberContainer.innerHTML = html
+
+    if ($btnHideShow.textContent === "HIDE") {
+        $btnHideShow.textContent = "SHOW"
+        $btnHideShow.classList.add("green-color")
+        $btnHideShow.classList.remove("red-color")
+
+        hidden = true
+        showXs()
+    }
+    else {
+        hidden = false
+        $btnHideShow.textContent = "HIDE"
+        $btnHideShow.classList.remove("green-color")
+        $btnHideShow.classList.add("red-color")
+        if (!started) return
+        let html = showRandomFigure()
+        $randomNumberContainer.innerHTML = html
+        clear()
+    }
 }
 
-$randomNumberContainer2.onmouseover = () => {
+$btnHideShow2.onclick = () => {
     if (!started) return
-    if (gameIndex === 1 && flashMode) return
-    let html = showRandomFigure()
-    $randomNumberContainer2.innerHTML = html
+
+    if ($btnHideShow2.textContent === "HIDE") {
+        $btnHideShow2.textContent = "SHOW"
+        $btnHideShow2.classList.add("green-color")
+        $btnHideShow2.classList.remove("red-color")
+
+        hidden = true
+        showXs()
+    }
+    else {
+        hidden = false
+        $btnHideShow2.textContent = "HIDE"
+        $btnHideShow2.classList.remove("green-color")
+        $btnHideShow2.classList.add("red-color")
+        if (!started) return
+        let html = showRandomFigure()
+        $randomNumberContainer2.innerHTML = html
+        clear()
+    }
 }
+// $randomNumberContainer.onmouseover = () => {
+//     if (!started) return
+//     let html = showRandomFigure()
+//     $randomNumberContainer.innerHTML = html
+// }
+
+// $randomNumberContainer2.onmouseover = () => {
+//     if (!started) return
+//     if (gameIndex === 1 && flashMode) return
+//     let html = showRandomFigure()
+//     $randomNumberContainer2.innerHTML = html
+// }
 
 
 
@@ -60,10 +105,9 @@ function getRandomNumber() {
 }
 
 $btnSwitch.onclick = () => {
-  
 
-    if(gameIndex === 0)
-    {
+
+    if (gameIndex === 0) {
         gameIndex = 1
         $digitRecallGameContainer.style.display = "none"
         $reversedDigitRecallGameContainer.style.display = "block"
@@ -74,11 +118,11 @@ $btnSwitch.onclick = () => {
         gameIndex = 2
         $reversedDigitRecallGameContainer.style.display = "none"
         $superRecallCulusGameContainer.style.display = "block"
-        
+
         $btnSwitch.textContent = "GO TO DIGIT RECALL GAME"
         $randomNumberContainer2.innerHTML = ""
     }
-    else{
+    else {
         gameIndex = 0
         $superRecallCulusGameContainer.style.display = "none"
         $digitRecallGameContainer.style.display = "block"
@@ -93,6 +137,7 @@ $btnSwitch.onclick = () => {
 }
 
 $btnGenerate.onclick = () => {
+    $btnHideShow.classList.remove("d-none")
     generateRandomFigure(digitAmount)
 
     let html = showRandomFigure()
@@ -105,23 +150,35 @@ $btnGenerate.onclick = () => {
 }
 
 $btnGenerate2.onclick = () => {
+    if(!timeout) return
+
     clear()
 
+    $btnHideShow2.classList.add("d-none")
+    hidden = false
+    $btnHideShow2.textContent = "HIDE"
+    $btnHideShow2.classList.remove("green-color")
+    $btnHideShow2.classList.add("red-color")
+
+    $randomNumberContainer2.innerHTML = ""
     generateRandomFigure(digitAmount2)
 
+   
     if (flashMode) {
-        if (!started) {
+        
+        if (timeout) {
             let milliseconds = 1000 / speed,
                 index = 0
 
-            started = true
+            timeout = false
             time1 = setInterval(() => {
                 $randomNumberContainer2.innerHTML = `<span class="main__random-digit reversed">${randomFigureString[index++]}</span>`
 
                 if (index === digitAmount2) {
                     clearInterval(time1)
-                    started = false
+                    // started = false
                     index = 0
+                    timeout = true
                 }
             }, milliseconds)
         }
@@ -129,13 +186,18 @@ $btnGenerate2.onclick = () => {
     else {
         let html = showRandomFigure()
         $randomNumberContainer2.innerHTML = html
+        $btnHideShow2.classList.remove("d-none")
+        
     }
+    started = true
 }
 
 function clear() {
     recalledFigureString = ""
     $textArea1.value = ""
     $textArea2.value = ""
+   
+
     showRecalledFigure()
 }
 
@@ -156,7 +218,7 @@ function restart() {
     }
 
     // if(gameIndex !== 1)
-        clearInterval(time1)
+    clearInterval(time1)
 
     showXs()
     hours = 0
@@ -165,13 +227,27 @@ function restart() {
     figureCounter = 0
     started = false
     left = 0
-    left2 = 0
+    hidden = false
 
     $timeSpan.textContent = `${getFormattedDigits(hours)}:${getFormattedDigits(minutes)}:${getFormattedDigits(seconds)}`
     $figureCounterSpan.textContent = `0/${figureAmount}`
 
-    $textArea1.value = ""
-    $textArea2.value = ""
+    clear()
+
+    $btnHideShow.textContent = "HIDE"
+    $btnHideShow.classList.remove("green-color")
+    $btnHideShow.classList.add("red-color")
+    $btnHideShow.classList.add("d-none")
+
+    $btnHideShow2.textContent = "HIDE"
+    $btnHideShow2.classList.remove("green-color")
+    $btnHideShow2.classList.add("red-color")
+    $btnHideShow2.classList.add("d-none")
+
+    $btnStop.classList.add("d-none")
+    $tBody.innerHTML = ""
+
+
     spansTemplate = ""
     recalledFigureString = ""
     randomFigureString = ""
@@ -206,7 +282,7 @@ $btnTest.onclick = () => {
         if (figureCounter === figureAmount) {
             checkTimeRecord()
 
-            
+
             restarted = true
 
             restart()
@@ -250,15 +326,35 @@ $btnTest2.onclick = () => {
 $textArea1.onkeypress = (e) => {
     let pattern = /\d/
 
-    if(!pattern.test(e.key)) 
+    if (!pattern.test(e.key) || !started) {
         e.preventDefault()
+        return
+    }
+
+    if (!hidden) {
+        e.preventDefault()
+        alert("Hide figure before typing")
+    }
 }
 
 $textArea2.onkeypress = (e) => {
     let pattern = /\d/
 
-    if(!pattern.test(e.key)) 
+    if (!pattern.test(e.key) || !started) {
         e.preventDefault()
+        return
+    }
+
+    if(!timeout && flashMode)
+    {
+        e.preventDefault()
+        return
+    }
+
+    if (!hidden && !flashMode) {
+        e.preventDefault()
+        alert("Hide figure before typing")
+    }
 }
 
 $textArea1.oninput = () => recalledFigureString = $textArea1.value
@@ -266,9 +362,10 @@ $textArea2.oninput = () => recalledFigureString = $textArea2.value
 
 window.onkeyup = (e) => {
 
-    let pattern = /Backspace|[\dsgcrt]/
+    let pattern = /Backspace|[\dsgcrth]/
 
-
+    if (e.key === "Control" || e.key === "Enter" || /F/g.test(e.key))
+        return
 
     if (gameIndex === 0) {
         if (e.key == "s") {
@@ -277,6 +374,11 @@ window.onkeyup = (e) => {
 
         if (!pattern.test(e.key) || started === false && e.key !== "g")
             return
+
+        if (!hidden && (/\d/.test(e.key))) {
+            alert("Hide figure before typing")
+            return
+        }
 
         switch (e.key) {
             case "g":
@@ -296,6 +398,10 @@ window.onkeyup = (e) => {
                 $btnTest.click()
                 break
 
+            case "h":
+                $btnHideShow.click()
+                break
+
             case "Backspace":
                 if (recalledFigureString !== "")
                     recalledFigureString = recalledFigureString.slice(0, -1)
@@ -310,14 +416,19 @@ window.onkeyup = (e) => {
 
         showRecalledFigure()
     }
-    else if (gameIndex === 1) {
+    else if (gameIndex === 1 && !flashMode) {
 
         if (e.key == "s") {
             $btnSave2.click()
         }
 
-        pattern = /Backspace|[\dgct]/
+        pattern = /Backspace|[\dgcth]/
         if (!pattern.test(e.key) && started) return
+
+        if (!hidden && (/\d/.test(e.key))) {
+            alert("Hide figure before typing")
+            return
+        }
 
         switch (e.key) {
             case "g":
@@ -331,6 +442,10 @@ window.onkeyup = (e) => {
 
             case "t":
                 $btnTest2.click()
+                break
+
+            case "h":
+                $btnHideShow2.click()
                 break
 
             case "Backspace":

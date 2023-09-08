@@ -280,6 +280,8 @@ $btnTest.onclick = () => {
         $attemptCounterSpan.textContent = `${attemptCounter}/${attemptAmount}`
 
         if (figureCounter === figureAmount) {
+            winLossTrackerArray.push(1)
+            checkRecord()
             checkTimeRecord()
 
 

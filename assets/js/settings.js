@@ -63,8 +63,8 @@ $btnSave.onclick = () => {
         if (!ok) return
     }
 
-    updateSettings()
 
+    updateSettings()
 
     setting.game1.digit_amount = parseInt(digitAmount)
     setting.game1.figure_amount = parseInt(figureAmount)
@@ -74,6 +74,13 @@ $btnSave.onclick = () => {
 
     $figureCounterSpan.textContent = `0/${figureAmount || 0}`
     $attemptCounterSpan.textContent = `0/${attemptAmount || 0}`
+
+    localStorage.removeItem("10min_record")
+    localStorage.removeItem("time")
+
+    $timeRecord.textContent = "00:00:00"
+    const $10minRecord = document.querySelector("#min-record")
+    $10minRecord.textContent = 0
 
     alert(`Setting Saved!`)
 

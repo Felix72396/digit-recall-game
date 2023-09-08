@@ -32,6 +32,7 @@
             b = Math.round(Math.random() * 100) + 1,
             randomOption = Math.round(Math.random() * 3)
         
+
         switch (randomOption) {
             case 0:
                 result = a + b
@@ -45,6 +46,7 @@
 
             case 3:
                 result = Math.round((a / b) * 10) / 10
+                console.log(result)
                 break
         }
 
@@ -106,9 +108,44 @@
         }
 
         if (e.target.matches(".main__digits button:not([class='main__x'] button)")) {
-            $td.textContent = e.target.textContent
-            $td.classList.add("white-text")
             $digitContainer.style.display = "none"
+
+            if(e.target.textContent !== $td.dataset.number)
+            {
+                alert("Try it again😥")
+                clearXs()
+                return
+            }
+            else{
+                $td.textContent = e.target.textContent
+                $td.classList.add("white-text")
+            }
+           
+
+            let allGuessed = true
+            const $tdList = document.querySelectorAll("td")
+            for (const td of $tdList) {
+                if (td.textContent === "X") {
+                    allGuessed = false
+                    return
+                }
+            }
+
+            if(allGuessed)
+            {
+                alert("Congratulations!")
+                clearXs()
+            alert("Congratulations!")
+            started = true
+            timeout = false
+            const $parent = $timeSpan2.parentElement
+            $parent.classList.remove("d-none")
+            $btnHint.classList.add("d-none")
+            $timeSpan2.textContent = `60 seg`
+            }
+
+            
+            
         }
 
         if (e.target.matches("#btn-digit-close")) {
@@ -117,6 +154,18 @@
 
         if (e.target.matches(".super-recall-culus-game .main__btn.clear")) {
             clearXs()
+        }
+
+        if(e.target.matches("#btn-stop"))
+        {
+            clearInterval(time1)
+            const $parent = $timeSpan2.parentElement
+            $parent.classList.add("d-none")
+            $btnHint.classList.remove("d-none")
+            performOperation()
+            timeout = true
+            clearXs()
+            $btnStop.classList.add("d-none")
         }
 
         if (e.target.matches(".super-recall-culus-game .main__btn.generate")) {
@@ -128,6 +177,8 @@
             if (started) {
                 clearInterval(time1)
             }
+
+            $btnStop.classList.remove("d-none")
 
             started = true
             timeout = false
@@ -151,38 +202,38 @@
             }
         }
 
-        if (e.target.matches(".super-recall-culus-game .main__btn.test")) {
-            if (!timeout) return
+        // if (e.target.matches(".super-recall-culus-game .main__btn.test")) {
+        //     if (!timeout) return
 
-            const $tdList = document.querySelectorAll("td")
+        //     const $tdList = document.querySelectorAll("td")
 
-            for (const td of $tdList) {
-                if (td.textContent === "X") {
-                    alert("Fill all the squares!")
-                    return
-                }
-            }
-
-
-            for (const td of $tdList) {
-                if (td.dataset.number !== td.textContent) {
-                    alert("Try it again😥")
-                    clearXs()
-                    return
-                }
-            }
-
-            clearXs()
-            alert("Congratulations!")
-            started = true
-            timeout = false
-            const $parent = $timeSpan2.parentElement
-            $parent.classList.remove("d-none")
-            $btnHint.classList.add("d-none")
-            $timeSpan2.textContent = `60 seg`
+        //     for (const td of $tdList) {
+        //         if (td.textContent === "X") {
+        //             alert("Fill all the squares!")
+        //             return
+        //         }
+        //     }
 
 
-        }
+        //     for (const td of $tdList) {
+        //         if (td.dataset.number !== td.textContent) {
+        //             alert("Try it again😥")
+        //             clearXs()
+        //             return
+        //         }
+        //     }
+
+        //     clearXs()
+        //     alert("Congratulations!")
+        //     started = true
+        //     timeout = false
+        //     const $parent = $timeSpan2.parentElement
+        //     $parent.classList.remove("d-none")
+        //     $btnHint.classList.add("d-none")
+        //     $timeSpan2.textContent = `60 seg`
+
+
+        // }
 
         if (e.target.matches("[data-matrix-size]")) {
             const $btnList = document.querySelectorAll("[data-matrix-size]")
@@ -204,7 +255,8 @@
 
         if(e.target.matches(".main__btn.accept"))
         {
-            let value = parseInt(document.querySelector(".main__operation-input").value)
+            let value = parseFloat(document.querySelector(".main__operation-input").value)
+            console.log(value)
             if(value === result)
             {
                 $calculationContainer.classList.add("d-none")
@@ -216,6 +268,7 @@
                 const $parent = $timeSpan2.parentElement
                 $parent.classList.remove("d-none")
                 $btnHint.classList.add("d-none")
+                $btnStop.classList.remove("d-none")
                 seconds = 60
                 timer()
             }

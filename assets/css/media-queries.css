@@ -1,7 +1,7 @@
 @media (max-width: 1470px) {
     .main__setting--d-flex {
       justify-content: center;
-      flex-wrap: wrap;
+     
 
     }
   }
@@ -21,7 +21,6 @@
     }
 
     .main__info-number-container--d-flex {
-      flex-wrap: wrap;
       align-content: center;
       justify-content: center;
     }

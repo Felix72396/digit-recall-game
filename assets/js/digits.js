@@ -1,6 +1,7 @@
 $timeRecord.textContent = timeRecord || "00:00:00"
 
 function showXs() {
+    hidden = true
     if (!started) return
     if (gameIndex === 1 && flashMode) return
 
@@ -21,50 +22,29 @@ showXs()
 // $randomNumberContainer.onmouseout = showXs
 // $randomNumberContainer2.onmouseout = showXs
 
-$btnHideShow.onclick = () => {
+$btnShow.onclick = () => {
+
     if (!started) return
+    let html = showRandomFigure()
+    $randomNumberContainer.innerHTML = html
+    $btnShow.classList.add("d-none")
 
-    if ($btnHideShow.textContent === "HIDE") {
-        $btnHideShow.textContent = "SHOW"
-        $btnHideShow.classList.add("green-color")
-        $btnHideShow.classList.remove("red-color")
+    clear()
 
-        hidden = true
-        showXs()
-    }
-    else {
-        hidden = false
-        $btnHideShow.textContent = "HIDE"
-        $btnHideShow.classList.remove("green-color")
-        $btnHideShow.classList.add("red-color")
-        if (!started) return
-        let html = showRandomFigure()
-        $randomNumberContainer.innerHTML = html
-        clear()
-    }
 }
 
-$btnHideShow2.onclick = () => {
+$btnShow2.onclick = () => {
     if (!started) return
 
-    if ($btnHideShow2.textContent === "HIDE") {
-        $btnHideShow2.textContent = "SHOW"
-        $btnHideShow2.classList.add("green-color")
-        $btnHideShow2.classList.remove("red-color")
 
-        hidden = true
-        showXs()
-    }
-    else {
-        hidden = false
-        $btnHideShow2.textContent = "HIDE"
-        $btnHideShow2.classList.remove("green-color")
-        $btnHideShow2.classList.add("red-color")
-        if (!started) return
-        let html = showRandomFigure()
-        $randomNumberContainer2.innerHTML = html
-        clear()
-    }
+
+
+    if (!started) return
+    let html = showRandomFigure()
+    $randomNumberContainer2.innerHTML = html
+    $btnShow2.classList.add("d-none")
+    clear()
+
 }
 // $randomNumberContainer.onmouseover = () => {
 //     if (!started) return
@@ -136,13 +116,11 @@ $btnSwitch.onclick = () => {
     restart()
 }
 
-function generateFigures()
-{
-    $btnHideShow.classList.remove("d-none")
+function generateFigures() {
+    clear()
     hidden = false
-    $btnHideShow.textContent = "HIDE"
-    $btnHideShow.classList.remove("green-color")
-    $btnHideShow.classList.add("red-color")
+    $btnShow.classList.add("d-none")
+
     generateRandomFigure(digitAmount)
 
     let html = showRandomFigure()
@@ -156,22 +134,20 @@ function generateFigures()
 $btnGenerate.onclick = () => generateFigures()
 
 $btnGenerate2.onclick = () => {
-    if(!timeout) return
+    if (!timeout) return
 
     clear()
 
-    $btnHideShow2.classList.add("d-none")
+    $btnShow2.classList.add("d-none")
     hidden = false
-    $btnHideShow2.textContent = "HIDE"
-    $btnHideShow2.classList.remove("green-color")
-    $btnHideShow2.classList.add("red-color")
+
 
     $randomNumberContainer2.innerHTML = ""
     generateRandomFigure(digitAmount2)
 
-   
+
     if (flashMode) {
-        
+
         if (timeout) {
             let milliseconds = 1000 / speed,
                 index = 0
@@ -192,8 +168,8 @@ $btnGenerate2.onclick = () => {
     else {
         let html = showRandomFigure()
         $randomNumberContainer2.innerHTML = html
-        $btnHideShow2.classList.remove("d-none")
-        
+        // $btnShow2.classList.remove("d-none")
+
     }
     started = true
 }
@@ -202,7 +178,7 @@ function clear() {
     recalledFigureString = ""
     $textArea1.value = ""
     $textArea2.value = ""
-   
+    hidden = false
 
     showRecalledFigure()
 }
@@ -213,6 +189,7 @@ $btnClear2.onclick = clear
 
 
 function restart() {
+    // aler
     if (!started) return
 
     if (!restarted) {
@@ -224,31 +201,35 @@ function restart() {
     }
 
     // if(gameIndex !== 1)
-    clearInterval(time1)
+
 
     showXs()
+
     hours = 0
     minutes = 0
     seconds = 0
     figureCounter = 0
     started = false
     left = 0
-    hidden = false
+
+    timeout = true
 
     $timeSpan.textContent = `${getFormattedDigits(hours)}:${getFormattedDigits(minutes)}:${getFormattedDigits(seconds)}`
     $figureCounterSpan.textContent = `0/${figureAmount}`
 
     clear()
 
-    $btnHideShow.textContent = "HIDE"
-    $btnHideShow.classList.remove("green-color")
-    $btnHideShow.classList.add("red-color")
-    $btnHideShow.classList.add("d-none")
 
-    $btnHideShow2.textContent = "HIDE"
-    $btnHideShow2.classList.remove("green-color")
-    $btnHideShow2.classList.add("red-color")
-    $btnHideShow2.classList.add("d-none")
+
+    $btnShow.classList.add("d-none")
+
+    $btnShow2.classList.add("d-none")
+    $btnHint.classList.add("d-none")
+
+
+    const $parent = $timeSpan2.parentElement
+    $parent.classList.remove("d-none")
+    $timeSpan2.textContent = `60 seg`
 
     $btnStop.classList.add("d-none")
     $tBody.innerHTML = ""
@@ -258,7 +239,8 @@ function restart() {
     recalledFigureString = ""
     randomFigureString = ""
     winLossTrackerArray = []
-    showRecalledFigure()
+    // showRecalledFigure()
+    clearInterval(time1)
 }
 
 $btnRestart.onclick = () => restart()
@@ -296,9 +278,6 @@ $btnTest.onclick = () => {
             restart()
             alert("Congratulations!")
         }
-
-        
-   
 
     }
     else {
@@ -344,7 +323,8 @@ $textArea1.onkeypress = (e) => {
 
     if (!hidden) {
         e.preventDefault()
-        alert("Hide figure before typing")
+        showXs()
+        $btnShow.classList.remove("d-none")
     }
 }
 
@@ -356,15 +336,16 @@ $textArea2.onkeypress = (e) => {
         return
     }
 
-    if(!timeout && flashMode)
-    {
+    if (!timeout && flashMode) {
         e.preventDefault()
         return
     }
 
-    if (!hidden && !flashMode) {
+    if (!flashMode && !hidden) {
+
         e.preventDefault()
-        alert("Hide figure before typing")
+        showXs()
+        $btnShow2.classList.remove("d-none")
     }
 }
 
@@ -372,6 +353,10 @@ $textArea1.oninput = () => recalledFigureString = $textArea1.value
 $textArea2.oninput = () => recalledFigureString = $textArea2.value
 
 window.onkeyup = (e) => {
+
+    // console.log("jhj")
+
+    // if($textArea1.style.display !== "none" || $textArea2.style.display !== "none") return
 
     let pattern = /Backspace|[\dsgcrth]/
 
@@ -382,14 +367,14 @@ window.onkeyup = (e) => {
         if (e.key == "s") {
             $btnSave2.click()
         }
-
-        if (!pattern.test(e.key) || started === false && e.key !== "g")
+        if (!pattern.test(e.key) || !started && e.key !== "g")
             return
 
         if (!hidden && (/\d/.test(e.key))) {
-            alert("Hide figure before typing")
-            return
+            showXs()
+            $btnShow.classList.remove("d-none")
         }
+
 
         switch (e.key) {
             case "g":
@@ -410,7 +395,7 @@ window.onkeyup = (e) => {
                 break
 
             case "h":
-                $btnHideShow.click()
+                $btnShow.click()
                 break
 
             case "Backspace":
@@ -427,18 +412,23 @@ window.onkeyup = (e) => {
 
         showRecalledFigure()
     }
-    else if (gameIndex === 1 && !flashMode) {
+
+    if (gameIndex === 1) {
+        
+        if (flashMode && !timeout) return
 
         if (e.key == "s") {
             $btnSave2.click()
         }
 
         pattern = /Backspace|[\dgcth]/
+       
         if (!pattern.test(e.key) && started) return
 
-        if (!hidden && (/\d/.test(e.key))) {
-            alert("Hide figure before typing")
-            return
+        if (!hidden && (/\d/.test(e.key) && !flashMode && started)) {
+            showXs()
+
+            $btnShow2.classList.remove("d-none")
         }
 
         switch (e.key) {
@@ -456,7 +446,7 @@ window.onkeyup = (e) => {
                 break
 
             case "h":
-                $btnHideShow2.click()
+                $btnShow2.click()
                 break
 
             case "Backspace":
@@ -465,6 +455,7 @@ window.onkeyup = (e) => {
                 break
 
             default:
+                if(!started) return
                 if (recalledFigureString.length < digitAmount2) {
                     recalledFigureString += e.key
                 }

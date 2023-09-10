@@ -20,8 +20,8 @@ const $randomNumberContainer = document.querySelector("#random-number"),
     $tBody = document.querySelector("#table tbody"),
     // $btnDigitClose = document.querySelector("#btn-digit-close"),
     $digitContainer = document.querySelector("#digits"),
-    $btnHideShow = document.querySelector(".main__btn.hide.show")
-    $btnHideShow2 = document.querySelector("#random-number2 + .main__btn.hide.show"),
+    $btnShow = document.querySelector(".main__btn.show"),
+    $btnShow2 = document.querySelector("#random-number2 + .main__btn.show"),
     $btnStop = document.querySelector("#btn-stop")
 
 const $digitAmountInput = document.querySelector("#digit-amount"),

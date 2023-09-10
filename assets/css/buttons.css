@@ -59,9 +59,9 @@
   background-color: rgb(215, 9, 9);
 }
 
-/* .main__btn.hide.show{
-  background-color: rgb(255, 0, 0);
-} */
+.main__btn.show{
+  background-color: rgb(6, 143, 6);
+}
 
 .main__btn:hover {
   letter-spacing: 5px;
@@ -119,14 +119,6 @@ span.main__x button:hover {
 
 button.blue-button {
   background-color: #2d0691;
-}
-
-.green-color{
-  background-color: rgb(6, 143, 6);
-}
-
-.red-color{
-  background-color: rgb(255, 0, 0);
 }
 
 .d-none{

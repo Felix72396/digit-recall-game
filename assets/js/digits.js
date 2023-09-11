@@ -245,7 +245,7 @@ function restart() {
 
 $btnRestart.onclick = () => restart()
 
-$btnTest.onclick = () => {
+$btnTest.onclick = async () => {
 
     if (recalledFigureString === "") return
 
@@ -276,7 +276,8 @@ $btnTest.onclick = () => {
             restarted = true
 
             restart()
-            alert("Congratulations!")
+            celebrate()
+            // alert("Congratulations!")
         }
 
     }
@@ -298,8 +299,8 @@ $btnTest2.onclick = () => {
         recalledFigureString = ""
         showRecalledFigure()
 
-        alert("Congratulations!")
-
+        // alert("Congratulations!")
+        celebrate()
         $btnGenerate2.click()
 
         restarted = false

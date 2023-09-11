@@ -1,0 +1,72 @@
+body {
+  perspective: 1000px;
+  /* transform-style: preserve-3d; */
+}
+
+.confetti {
+  position: absolute;
+  inset: 50%;
+  z-index: 90;
+  transform-style: preserve-3d;
+}
+
+.confetti > span {
+  position: absolute;
+  width: var(--size);
+  aspect-ratio: 1;
+  background-color: hsl(var(--hue), 100%, 50%);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+
+}
+
+.rounded {
+  border-radius: 50%;
+}
+
+.parallelogram {
+  border-radius: 0 10px 0 10px;
+}
+
+.explotion {
+  animation: confetti-settle 3s;
+  -webkit-animation: confetti-settle 3s;
+}
+
+.explotion > span {
+  animation: confetti-spread 2s;
+  -webkit-animation: confetti-spread 2s;
+}
+
+@keyframes confetti-spread {
+  25% {
+    translate: 0 -55vh;
+  }
+  100% {
+    translate: 0 -25vh;
+    transform: 
+    translateY(var(--offsetY)) 
+    translateX(var(--offsetX))      
+    translateZ(500px)
+    rotateX(var(--turns))
+    rotateY(var(--turns))
+    rotateZ(var(--turns));
+}
+}
+
+@keyframes confetti-settle {
+  50%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(80vh);
+    -webkit-transform: translateY(80vh);
+    -moz-transform: translateY(80vh);
+    -ms-transform: translateY(80vh);
+    -o-transform: translateY(80vh);
+}
+}
+
+/* https://www.youtube.com/watch?v=pKHKQwAsZLI&ab_channel=KevinPowell */

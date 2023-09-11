@@ -132,7 +132,8 @@ window.onclick = (e) => {
         }
 
         if (allGuessed) {
-            alert("Congratulations!")
+            // alert("Congratulations!")
+            celebrate()
             clearXs()
    
             started = true
@@ -253,7 +254,7 @@ window.onclick = (e) => {
 
     if (e.target.matches(".main__btn.accept")) {
         let value = parseFloat(document.querySelector(".main__operation-input").value)
-        console.log(value)
+       
         if (value === result) {
             $calculationContainer.classList.add("d-none")
             const $tdList = document.querySelectorAll("td")

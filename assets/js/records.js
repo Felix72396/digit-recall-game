@@ -1,50 +1,50 @@
 
 
-function setRecord(itemName, recalledFigureCount) {
-    if (!localStorage.getItem(itemName)) {
-        localStorage.setItem(itemName, recalledFigureCount)
-        showRecord()
-    }
-    else {
-        let previousRecord = JSON.parse(localStorage.getItem(itemName))
+// function setRecord(itemName, recalledFigureCount) {
+//     if (!localStorage.getItem(itemName)) {
+//         localStorage.setItem(itemName, recalledFigureCount)
+//         showRecord()
+//     }
+//     else {
+//         let previousRecord = JSON.parse(localStorage.getItem(itemName))
 
-        if (recalledFigureCount > previousRecord) {
-            localStorage.setItem(itemName, recalledFigureCount)
-            showRecord()
-        }
-    }
-}
+//         if (recalledFigureCount > previousRecord) {
+//             localStorage.setItem(itemName, recalledFigureCount)
+//             showRecord()
+//         }
+//     }
+// }
 
-function checkRecord() {
-    let { length } = winLossTrackerArray,
-        right = length + left - 1
+// function checkRecord() {
+//     let { length } = winLossTrackerArray,
+//         right = length + left - 1
 
-    if (length < 600) {
-        let array = winLossTrackerArray.slice(left, right),
-        recalledFigureCount = array.filter(bit => bit === 1).length
-        setRecord("10min_record", recalledFigureCount)
+//     if (length < 600) {
+//         let array = winLossTrackerArray.slice(left, right),
+//         recalledFigureCount = array.filter(bit => bit === 1).length
+//         setRecord("10min_record", recalledFigureCount)
         
-    }
+//     }
 
-    if (length >= 600) {
-        let array = winLossTrackerArray.slice(left, right),
-            recalledFigureCount = array.filter(bit => bit === 1).length
-        setRecord("10min_record", recalledFigureCount)
-        left++
-    }
-}
+//     if (length >= 600) {
+//         let array = winLossTrackerArray.slice(left, right),
+//             recalledFigureCount = array.filter(bit => bit === 1).length
+//         setRecord("10min_record", recalledFigureCount)
+//         left++
+//     }
+// }
 
-function showRecord() {
-    const $10minRecord = document.querySelector("#min-record")
+// function showRecord() {
+//     const $10minRecord = document.querySelector("#min-record")
 
-    let record = localStorage.getItem("10min_record")
+//     let record = localStorage.getItem("10min_record")
 
-    $10minRecord.textContent = record || 0
+//     $10minRecord.textContent = record || 0
 
 
-}
+// }
 
-showRecord()
+// showRecord()
 
 function checkTimeRecord() {
     if (!timeRecord) {

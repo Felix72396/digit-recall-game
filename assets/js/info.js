@@ -7,8 +7,8 @@ let timeString = ""
 function getTime()
 {
     seconds++;
-    winLossTrackerArray.push(0)
-    checkRecord()
+    // winLossTrackerArray.push(0)
+    // checkRecord()
 
     if(seconds === 60)
     {

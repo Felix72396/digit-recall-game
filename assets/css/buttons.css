@@ -65,7 +65,7 @@
 
 .main__btn:hover {
   letter-spacing: 5px;
-  font-size: calc(0.5min + 2px);
+  font-size: calc(1.7vmin + 2px);
   opacity: 1;
 }
 

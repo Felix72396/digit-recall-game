@@ -18,7 +18,6 @@ body {
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-
 }
 
 .rounded {
@@ -45,28 +44,20 @@ body {
   }
   100% {
     translate: 0 -25vh;
-    transform: 
-    translateY(var(--offsetY)) 
-    translateX(var(--offsetX))      
-    translateZ(500px)
-    rotateX(var(--turns))
-    rotateY(var(--turns))
-    rotateZ(var(--turns));
-}
+    transform: translateY(var(--offsetY)) translateX(var(--offsetX))
+      translateZ(500px) rotateX(var(--turns)) rotateY(var(--turns))
+      rotateZ(var(--turns));
+  }
 }
 
 @keyframes confetti-settle {
-  50%{
+  50% {
     opacity: 1;
   }
   100% {
     opacity: 0;
     transform: translateY(80vh);
-    -webkit-transform: translateY(80vh);
-    -moz-transform: translateY(80vh);
-    -ms-transform: translateY(80vh);
-    -o-transform: translateY(80vh);
-}
+  }
 }
 
 /* https://www.youtube.com/watch?v=pKHKQwAsZLI&ab_channel=KevinPowell */

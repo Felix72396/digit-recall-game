@@ -210,7 +210,7 @@ function restart() {
     seconds = 0
     figureCounter = 0
     started = false
-    left = 0
+    // left = 0
 
     timeout = true
 
@@ -238,7 +238,7 @@ function restart() {
     spansTemplate = ""
     recalledFigureString = ""
     randomFigureString = ""
-    winLossTrackerArray = []
+    // winLossTrackerArray = []
     // showRecalledFigure()
     clearInterval(time1)
 }
@@ -256,8 +256,8 @@ $btnTest.onclick = async () => {
         attemptCounter++
 
         if (attemptCounter === attemptAmount) {
-            winLossTrackerArray.push(1)
-            checkRecord()
+            // winLossTrackerArray.push(1)
+            // checkRecord()
 
             attemptCounter = 0
             figureCounter++
@@ -268,8 +268,8 @@ $btnTest.onclick = async () => {
         $attemptCounterSpan.textContent = `${attemptCounter}/${attemptAmount}`
 
         if (figureCounter === figureAmount) {
-            winLossTrackerArray.push(1)
-            checkRecord()
+            // winLossTrackerArray.push(1)
+            // checkRecord()
             checkTimeRecord()
 
 
@@ -300,7 +300,7 @@ $btnTest2.onclick = () => {
         showRecalledFigure()
 
         // alert("Congratulations!")
-        celebrate()
+ celebrate()
         $btnGenerate2.click()
 
         restarted = false

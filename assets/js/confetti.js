@@ -14,19 +14,19 @@
 
 
 
-async function celebrate() {
+function celebrate() {
     const options = {
         method: 'GET',
         headers: {
             "Content-type": "text/html"
-        },
+        }
     }
     
-    const response = await fetch("assets/partials/confetti.html", options)
-    const confetti = await response.text()
+    // const response = await fetch("assets/partials/confetti.html", options)
+    // const confetti = await response.text()
     const $body = document.documentElement
     
-    $body.innerHTML += confetti
+    // $body.innerHTML += confetti
     
     const $confetti = document.querySelector(".confetti")
 
@@ -34,6 +34,7 @@ async function celebrate() {
     $confetti.classList.add("explotion")
 
     const $confettiList = document.querySelectorAll(".confetti span")
+
     $confettiList.forEach(item => {
 
 
@@ -69,8 +70,11 @@ async function celebrate() {
     $confetti.addEventListener("animationend", () => {
         $confetti.classList.remove("explotion")
         $confetti.classList.add("d-none")
-    }, { once: true })
+        // $confetti.remove()
+    
+    })
 }
+
 
 // celebrate()
 

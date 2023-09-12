@@ -11,22 +11,26 @@
 // }
 
 // let randomNumber = () => Math.floor(Math.random() * 5)
+const $body = document.documentElement
+// (async () => {
+
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             "Content-type": "text/html"
+//         }
+//     }
+    
+//     const response = await fetch("assets/partials/confetti.html", options),
+//     confetti = await response.text()
+
+    
+//     $body.innerHTML += confetti
 
 
+// })()
 
 function celebrate() {
-    const options = {
-        method: 'GET',
-        headers: {
-            "Content-type": "text/html"
-        }
-    }
-    
-    // const response = await fetch("assets/partials/confetti.html", options)
-    // const confetti = await response.text()
-    const $body = document.documentElement
-    
-    // $body.innerHTML += confetti
     
     const $confetti = document.querySelector(".confetti")
 

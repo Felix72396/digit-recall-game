@@ -353,6 +353,7 @@ $textArea2.onkeypress = (e) => {
 
 $textArea1.addEventListener("touchstart", () => {
     if(hidden) return
+    
     showXs()
     $btnShow.classList.remove("d-none")
 })

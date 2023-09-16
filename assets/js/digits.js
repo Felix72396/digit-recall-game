@@ -240,6 +240,7 @@ function restart() {
     randomFigureString = ""
     // winLossTrackerArray = []
     // showRecalledFigure()
+
     clearInterval(time1)
 }
 
@@ -351,18 +352,24 @@ $textArea2.onkeypress = (e) => {
 }
 
 $textArea1.addEventListener("touchstart", () => {
-    alert("d")
+    if(hidden) return
+    showXs()
+    $btnShow.classList.remove("d-none")
+})
+
+$textArea2.addEventListener("touchstart", () => {
+    if(hidden) return
+    
+    showXs()
+    $btnShow2.classList.remove("d-none")
 })
 
 $textArea1.oninput = () => {
     recalledFigureString = $textArea1.value
-    showXs()
-    $btnShow.classList.remove("d-none")
+   
 }
 $textArea2.oninput = () => {
     recalledFigureString = $textArea2.value
-    showXs()
-    $btnShow2.classList.remove("d-none")
 }
 
 window.onkeyup = (e) => {

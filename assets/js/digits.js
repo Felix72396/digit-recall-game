@@ -300,7 +300,7 @@ $btnTest2.onclick = () => {
         showRecalledFigure()
 
         // alert("Congratulations!")
- celebrate()
+        celebrate()
         $btnGenerate2.click()
 
         restarted = false
@@ -350,8 +350,16 @@ $textArea2.onkeypress = (e) => {
     }
 }
 
-$textArea1.oninput = () => recalledFigureString = $textArea1.value
-$textArea2.oninput = () => recalledFigureString = $textArea2.value
+$textArea1.oninput = () => {
+    recalledFigureString = $textArea1.value
+    showXs()
+    $btnShow.classList.remove("d-none")
+}
+$textArea2.oninput = () => {
+    recalledFigureString = $textArea2.value
+    showXs()
+    $btnShow2.classList.remove("d-none")
+}
 
 window.onkeyup = (e) => {
 
@@ -415,7 +423,7 @@ window.onkeyup = (e) => {
     }
 
     if (gameIndex === 1) {
-        
+
         if (flashMode && !timeout) return
 
         if (e.key == "s") {
@@ -423,7 +431,7 @@ window.onkeyup = (e) => {
         }
 
         pattern = /Backspace|[\dgcth]/
-       
+
         if (!pattern.test(e.key) && started) return
 
         if (!hidden && (/\d/.test(e.key) && !flashMode && started)) {
@@ -456,7 +464,7 @@ window.onkeyup = (e) => {
                 break
 
             default:
-                if(!started) return
+                if (!started) return
                 if (recalledFigureString.length < digitAmount2) {
                     recalledFigureString += e.key
                 }

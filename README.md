@@ -14,7 +14,7 @@ different options like speed for instance, this can manage the speed of the blin
 Unlike the first game you recall the figures from back to front (**reversed**).
 
 3. **SUPER-RECALL-CULUS GAME:** This is the third and last of these series of games. It has concepts of the previous games, but the figures to recalled are
-organized in squared matrixes ranged from 3 x 3 up to 10 x 10 size. You have one minute to memorize all the numbers in the matrix and if you fail you can keep trying
+organized in squared matrices ranged from 3 x 3 up to 10 x 10 size. You have one minute to memorize all the numbers in the matrix and if you fail you can keep trying
 by clicking the **"Hint"** button and you get a change to see the numbers withing one minute again.
 
 ## DETAILS FOR INSTALLING

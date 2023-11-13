@@ -1,7 +1,7 @@
 # DIGIT RECALL GAME
 This is a memory game that will boost your memory capacity and will push you to further limits.
 It consists of a series of figures and matrixes sizes that contain digits you need to memorize 
-and retrieve them later. You get feed back everytime you recall the figures and can set records
+and retrieve them later. You get feedback everytime you recall the figures and can set records
 so you keep track of your progress. On to of that, you can set it according to your capabilities 
 and increase the difficulty throughout your game journey.
 
